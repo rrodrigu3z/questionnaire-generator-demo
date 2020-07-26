@@ -1,0 +1,22 @@
+<form {{on "submit" submit}}>
+  <div class="mx-auto sm:max-w-xl">
+    <Input
+      class="mt-5 sm:mt-8 bg-gray-800 text-xl text-gray-400 placeholder-gray-600 border-none focus:outline-none focus:shadow-outline border rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+      id="article-url"
+      type="url"
+      required="required"
+      placeholder="Paste a valid Wikipedia article URL here"
+      @value={{url}}
+    />
+  </div>
+
+  <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
+    <div class="rounded-md shadow">
+      <Input
+        type="submit"
+        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 cursor-pointer hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-xl md:px-10"
+        value="Ok, let's try it"
+      />
+    </div>
+  </div>
+</form>
