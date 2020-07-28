@@ -17,16 +17,16 @@
 
           {{!-- Wikipedia URL Form --}}
           <PageHome::UrlForm
-            @onSubmit={{processURL}}
+            @onSubmit={{this.processURL}}
           />
 
           {{!-- Default URLs Selector --}}
           <div class="mx-auto sm:max-w-xl mt-5 sm:mt-8">
             <PageHome::ArticlesSelect
               @placeholder="Or, you can select a predefined article"
-              @articles={{articles}}
-              @selected={{selected}}
-              @onSelect={{selectArticle}}
+              @articles={{this.articles}}
+              @selected={{this.selected}}
+              @onSelect={{this.selectArticle}}
             />
           </div>
         </div>

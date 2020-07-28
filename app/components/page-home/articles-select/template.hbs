@@ -4,8 +4,8 @@
       {{!-- Select trigger button --}}
       <button type="button" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label"
         class="{{if @selected "text-gray-400" "text-gray-600"}} relative w-full rounded-md border border-gray-800 bg-gray-800 pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline transition ease-in-out duration-150 sm:text-xl sm:leading-normal"
-        {{on "click" toggleOpen}}
-        {{on-click-outside close}}>
+        {{on "click" this.toggleOpen}}
+        {{on-click-outside this.close}}>
 
         {{!-- Wikipedia Icon and current item --}}
         <div class="flex items-center space-x-3">
@@ -13,7 +13,7 @@
             src="/assets/wikipedia_w.svg"
             alt="Wikipedia" class="flex-shrink-0 h-6 w-6 p-1 rounded-full bg-gray-300">
           <span class="block truncate">
-            {{selectedTitle}}
+            {{this.selectedTitle}}
           </span>
         </div>
 
@@ -27,7 +27,7 @@
     </span>
 
     {{!-- Select popover, show/hide based on select state.  --}}
-    {{#if isOpen}}
+    {{#if this.isOpen}}
       <PageHome::ArticlesPopover
         @articles={{@articles}}
         @selected={{@selected}}
