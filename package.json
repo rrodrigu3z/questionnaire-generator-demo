@@ -60,7 +60,7 @@
     "tailwindcss": "^1.5.1"
   },
   "engines": {
-    "node": "10.* || >= 12"
+    "node": "10.* || 12.x <12.18.3"
   },
   "ember": {
     "edition": "octane"
