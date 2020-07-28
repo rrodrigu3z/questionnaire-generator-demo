@@ -11,13 +11,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -30,3 +27,15 @@ jobs:
       run: yarn test
       env:
         CI: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "questionnaire-generator-demo"
+          heroku_email: "rrodrigu3z@gmail.com"
+          buildpack: "https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/emberjs.tgz"
