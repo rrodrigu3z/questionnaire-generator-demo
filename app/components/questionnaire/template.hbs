@@ -1,0 +1,17 @@
+<h1 class="text-2xl font-bold mb-2 flex items-center space-x-3">
+  <img class="w-8 h-8" src="/assets/help-with-circle.svg" alt="Question">
+  <span>Generated Questions</span>
+</h1>
+<p class="text-sm font-normal text-gray-500 mb-2">Each of these questions and answers were generated based on the
+  selected paragraph from the left panel.</p>
+
+<div class="text-center py-4 lg:px-4 mb-4">
+  <AlertMessage
+    @badge="Tip"
+    @message="Try using different language models"
+  />
+</div>
+
+{{!-- Questions --}}
+<Questionnaire::Question />
+<Questionnaire::Question />

@@ -1,0 +1,20 @@
+{{!-- nav bar --}}
+<PageGenerator::NavBar></PageGenerator::NavBar>
+
+{{!-- main content --}}
+<main class="max-w-screen-lg mx-auto">
+  {{!-- Two columns --}}
+  <div class="lg:flex lg:space-x-8">
+    {{!-- Left Panel --}}
+    <div class="lg:w-1/2 px-6">
+      {{!-- article --}}
+      <ParsedArticle></ParsedArticle>
+    </div>
+
+    {{!-- Right Panel --}}
+    <div class="lg:w-1/2 px-6">
+      {{!-- Questionnaire --}}
+      <Questionnaire></Questionnaire>
+    </div>
+  </div>
+</main>
