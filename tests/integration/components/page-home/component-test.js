@@ -1,26 +1,19 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | page-home', function(hooks) {
   setupRenderingTest(hooks);
 
-  skip('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('it renders', async function(assert) {
+    assert.expect(3);
 
     await render(hbs`<PageHome />`);
+    assert.dom('h2').hasText('Wikipedia questionnaire generator');
+    assert.dom('[data-test-article-item]').doesNotExist();
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <PageHome>
-        template block text
-      </PageHome>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    await click('[data-test-article-select]');
+    assert.dom('[data-test-article-item]').exists({ count: 2 });
   });
 });
