@@ -13,8 +13,8 @@ module('Integration | Component | page-generator/nav-bar', function(hooks) {
     const selectedModel = { name: 'T5/GPT2' };
     stubService('questionnaire', {
       selectedModel,
-      toggleModel() {}
-    })
+      toggleModel() { }
+    });
 
     await render(hbs`<PageGenerator::NavBar />`);
 

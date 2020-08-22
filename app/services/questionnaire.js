@@ -1,4 +1,3 @@
-import { A } from '@ember/array';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import Service from '@ember/service';
