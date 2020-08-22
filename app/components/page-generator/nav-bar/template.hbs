@@ -1,9 +1,19 @@
 <nav class="h-16 max-w-screen-lg mx-auto px-6 pt-2">
-  <div class="flex">
+  <div class="flex justify-between">
     <LinkTo @route="home"
+      data-test-home-button
       class="flex items-center pl-2 pr-3 py-1 text-xs leading-normal font-medium rounded-full text-white bg-indigo-800 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out">
       <img src="/assets/triangle-left.svg" alt="Wikipedia" class="flex-shrink-0 h-4 w-4">
       Back to home
     </LinkTo>
+
+    <button type="button"
+      data-test-model-button
+      class="flex items-center pl-3 pr-2 py-1 text-xs leading-normal font-medium rounded-full text-white bg-indigo-800 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out"
+      title={{this.questionnaire.selectedModel.description}}
+      {{on "click" (fn this.questionnaire.toggleModel)}}>
+      {{this.questionnaire.selectedModel.name}}
+      <img src="/assets/network.svg" alt="Language model" class="flex-shrink-0 h-4 w-4 pl-1">
+    </button>
   </div>
 </nav>
