@@ -27,7 +27,7 @@ module('Integration | Component | page-home/url-form', function(hooks) {
   test('it submits form', async function(assert) {
     assert.expect(2);
 
-    let wikipediaURL = 'https://wikipedia.com';
+    let wikipediaURL = 'https://en.wikipedia.org/wiki/AI';
 
     this.set('onSubmit', (url) => {
       assert.ok(true, 'onSubmit called');
@@ -42,5 +42,24 @@ module('Integration | Component | page-home/url-form', function(hooks) {
 
     await fillIn('#article-url', wikipediaURL);
     await click('form input[type="submit"]');
+  });
+
+  test('it validates URL', async function(assert) {
+    assert.expect(1);
+
+    let wikipediaURL = 'https://wikipedia.com/';
+    this.set('onSubmit', () => { });
+
+    await render(hbs`
+      <PageHome::UrlForm
+        @onSubmit={{action onSubmit}}
+      />
+    `);
+
+    await fillIn('#article-url', wikipediaURL);
+    await click('form input[type="submit"]');
+
+    assert.dom('[data-test-error-message]')
+      .hasText('Please use a valid English Wikipedia URL');
   });
 });

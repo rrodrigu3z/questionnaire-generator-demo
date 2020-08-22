@@ -8,6 +8,12 @@
       placeholder="Paste a valid Wikipedia article URL here"
       @value={{this.url}}
     />
+
+    {{#if this.invalidUrl}}
+      <p class="text-red-400 mt-2 text-xs text-left" data-test-error-message>
+        Please use a valid English Wikipedia URL
+      </p>
+    {{/if}}
   </div>
 
   <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
