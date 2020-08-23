@@ -8,7 +8,7 @@ export default class WikipediaService extends Service {
   @service fetch;
 
   parse(title) {
-    return this.fetch.post('/articles/parse_pargraphs', { title });
+    return this.fetch.post('/articles/parse_paragraphs', { title });
   }
 
   isValidUrl(articleUrl) {
