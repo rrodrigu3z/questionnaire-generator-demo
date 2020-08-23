@@ -1,35 +1,19 @@
 <article>
   <h1 class="text-2xl font-bold mb-2 flex items-center space-x-3">
     <img src="/assets/wikipedia_w.svg" alt="Wikipedia" class="flex-shrink-0 h-8 w-8 p-1 rounded-full bg-white">
-    <span>Artificial Intelligence</span>
+    <span>{{@title}}</span>
   </h1>
+
   <p class="text-sm font-normal text-gray-500 mb-2">Extracted paragraphs from the article URL</p>
+
   {{!-- Paragraphs --}}
   <div class="article-paragraphs">
-      <p
-        class="my-4 border-l-4 border-gray-700 px-6 py-4 text-gray-500 text-justify hover:bg-gray-800 cursor-pointer rounded-r-lg">
-        Do excepteur consectetur non qui aute. Do nostrud veniam reprehenderit consequat labore proident sit velit
-        adipisicing sit amet nulla ut aliquip. Aliqua occaecat exercitation est ea reprehenderit labore eiusmod
-        veniam. Eu ad ad officia officia. Duis ex esse deserunt labore mollit eu consequat.</p>
-      <p class="my-4 border-l-4 border-indigo-600 px-6 py-4 text-justify hover:bg-gray-800 cursor-pointer rounded-r-lg">
-        Ex tempor nostrud dolor reprehenderit aliquip quis amet ad minim Lorem ex. Aliquip incididunt Lorem nulla
-        reprehenderit mollit occaecat labore fugiat excepteur elit et laboris. Cillum ullamco nulla aute qui aliqua
-        mollit quis adipisicing fugiat ea mollit fugiat. Aliqua est ea incididunt irure proident adipisicing laborum qui
-        cillum laborum Lorem laborum nisi elit. Magna dolor eiusmod qui fugiat et incididunt qui in ullamco exercitation
-        sunt qui ex commodo. Cupidatat elit pariatur eu est incididunt aliquip voluptate excepteur magna cillum commodo
-        officia velit aliqua. Velit elit reprehenderit est qui et elit enim.</p>
-      <p
-        class="my-4 border-l-4 border-gray-700 px-6 py-4 text-gray-500 text-justify hover:bg-gray-800 cursor-pointer rounded-r-lg">
-        Magna reprehenderit velit reprehenderit laboris nostrud pariatur. Culpa ad voluptate magna voluptate cupidatat
-        ut dolor proident aliqua minim consectetur. Culpa fugiat laboris ullamco aliqua duis proident aliqua esse. Fugiat
-        cillum nostrud sunt sint deserunt pariatur ullamco. Ipsum enim id enim in amet mollit deserunt do sunt eiusmod
-        magna aute nisi.</p>
-      <p
-        class="my-4 border-l-4 border-gray-700 px-6 py-4 text-gray-500 text-justify hover:bg-gray-800 cursor-pointer rounded-r-lg">
-        Do quis occaecat sunt aliquip adipisicing non in sint eu duis veniam nostrud. Cillum aliqua nulla consequat et
-        anim nostrud ut aliquip et deserunt qui adipisicing sit. Deserunt consectetur do proident proident labore. Officia
-        nisi nisi esse ea commodo tempor et. Duis pariatur amet in laborum voluptate incididunt veniam esse velit occaecat
-        fugiat dolore. Magna duis sint nostrud ex velit cupidatat aute sint ea ad. Non labore sunt nostrud ullamco enim
-        pariatur cupidatat pariatur quis proident sunt aute aliqua occaecat.</p>
+    {{#each @paragraphs as |item index|}}
+      <p role="button"
+        class="paragraph {{if (eq @selectedParagraph index) "paragraph-active"}}"
+        {{on "click" (fn @onSelectParagraph index)}}>
+        {{item.paragraph}}
+      </p>
+    {{/each}}
   </div>
 </article>

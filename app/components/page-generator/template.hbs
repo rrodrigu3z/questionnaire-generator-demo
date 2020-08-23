@@ -8,7 +8,12 @@
     {{!-- Left Panel --}}
     <div class="lg:w-1/2 px-6">
       {{!-- article --}}
-      <ParsedArticle></ParsedArticle>
+      <ParsedArticle
+        @title={{@title}}
+        @paragraphs={{@paragraphs}}
+        @selectedParagraph={{@selectedParagraph}}
+        @onSelectParagraph={{@onSelectParagraph}}
+      />
     </div>
 
     {{!-- Right Panel --}}

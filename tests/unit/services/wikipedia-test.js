@@ -39,19 +39,24 @@ module('Unit | Service | wikipedia', function(hooks) {
     assert.notOk(this.service.isValidUrl(url));
   });
 
-  test('parse article', function(assert) {
-    assert.expect(2);
+  test('parse article', async function(assert) {
+    assert.expect(4);
 
     stubService('fetch', {
       post(url, data) {
         assert.equal(data.title, 'Artificial_intelligence');
         assert.ok(
-          url.match(/\/articles\/parse_pargraphs$/),
+          url.match(/\/articles\/parse_paragraphs$/),
           'requests to the proper URL'
         );
+
+        return { json: () => { return { data: [] } } };
       }
     });
 
-    this.service.parse('Artificial_intelligence');
+    const json = await this.service.parse('Artificial_intelligence');
+
+    assert.equal(json.title, 'Artificial intelligence', 'returns title');
+    assert.deepEqual(json.data, [], 'returns data');
   });
 });
