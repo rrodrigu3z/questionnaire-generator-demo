@@ -14,7 +14,9 @@ export default class FetchService extends Service {
     const headers = { 'Content-Type': this.contentType };
     const url = this._buildUrl(path);
 
-    return fetch(url, { method, body, headers });
+    return fetch(url, {
+      method, body: JSON.stringify(body), headers
+    });
   }
 
   _buildUrl(path) {

@@ -1,0 +1,13 @@
+/* CSS for paragraph component  */
+
+.note {
+  @apply bg-yellow-300 w-full text-gray-900 rounded-sm py-4 px-6;
+}
+
+.note-title {
+  @apply text-center font-bold text-xl mb-4;
+}
+
+.note-text {
+  @apply text-lg mt-2;
+}

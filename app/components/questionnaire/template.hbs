@@ -13,5 +13,6 @@
 </div>
 
 {{!-- Questions --}}
-<Questionnaire::Question />
-<Questionnaire::Question />
+{{#each @questions as |question|}}
+  <Questionnaire::Question @question={{question}}/>
+{{/each}}

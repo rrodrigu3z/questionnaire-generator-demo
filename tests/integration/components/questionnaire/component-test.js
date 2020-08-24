@@ -7,7 +7,17 @@ module('Integration | Component | questionnaire', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    await render(hbs`<Questionnaire />`);
+    const answer = { "answer": "Machine intelligence", correct: true };
+    this.set('questions', [
+      { "question": "What is AI?", "answers": [answer, answer] },
+      { "question": "What is ML?", "answers": [answer, answer] }
+    ]);
+
+    await render(hbs`
+      <Questionnaire
+        @questions={{this.questions}}
+      />
+    `);
 
     assert.dom('h1 img').exists();
     assert.dom('h1').hasText('Generated Questions');

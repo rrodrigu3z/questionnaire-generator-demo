@@ -7,4 +7,8 @@ export default function() {
   this.post('/articles/parse_paragraphs', function(schema) {
     return { data: schema.db.paragraphs };
   });
+
+  this.post('/paragraphs/questionnaire', function(schema) {
+    return { data: schema.db.questionnaires };
+  });
 }

@@ -1,7 +1,11 @@
 module.exports = {
   purge: [],
   theme: {
-    extend: {},
+    extend: {
+      rotate: {
+        '-1': '-1deg'
+      }
+    },
   },
   variants: {},
   plugins: [],

@@ -7,16 +7,25 @@ module('Integration | Component | questionnaire/answer', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders as incorrect answer', async function(assert) {
-    await render(hbs`<Questionnaire::Answer />`);
+    await render(hbs`
+      <Questionnaire::Answer
+        @text="Human intelligence"
+      />
+    `);
 
     assert.dom('li img').doesNotExist();
-    assert.dom('li').hasText('Respuesta Incorrecta');
+    assert.dom('li').hasText('Human intelligence');
   });
 
   test('it renders correct answer', async function(assert) {
-    await render(hbs`<Questionnaire::Answer @correct=true />`);
+    await render(hbs`
+      <Questionnaire::Answer
+        @text="Machine intelligence"
+        @correct=true
+      />
+    `);
 
     assert.dom('li img').exists();
-    assert.dom('li').hasText('Respuesta Correcta');
+    assert.dom('li').hasText('Machine intelligence');
   });
 });

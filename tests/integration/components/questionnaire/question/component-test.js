@@ -7,9 +7,19 @@ module('Integration | Component | questionnaire/question', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    await render(hbs`<Questionnaire::Question />`);
+    const answer = { "answer": "Machine intelligence", correct: true };
+    this.set('question', {
+      "question": "What is AI?",
+      "answers": [answer, answer]
+    });
 
-    assert.dom('h2').hasText('Cual de las siguientes opciones es válida?');
-    assert.dom('ul li').exists({ count: 3 });
+    await render(hbs`
+      <Questionnaire::Question
+        @question={{this.question}}
+      />
+    `);
+
+    assert.dom('h2').hasText('What is AI?');
+    assert.dom('ul li').exists({ count: 2 });
   });
 });

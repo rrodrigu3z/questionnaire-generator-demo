@@ -19,7 +19,11 @@
     {{!-- Right Panel --}}
     <div class="lg:w-1/2 px-6">
       {{!-- Questionnaire --}}
-      <Questionnaire></Questionnaire>
+      {{#if this.showQuestionnaire}}
+        {{outlet}}
+      {{else}}
+        <PostitNote />
+      {{/if}}
     </div>
   </div>
 </main>

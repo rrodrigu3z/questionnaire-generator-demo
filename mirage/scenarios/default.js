@@ -5,4 +5,5 @@ export default function(server) {
   */
 
   server.createList('paragraph', 5);
+  server.createList('questionnaire', 4);
 }

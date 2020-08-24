@@ -1,12 +1,10 @@
 import Controller from '@ember/controller';
 import { readOnly } from '@ember/object/computed';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class GeneratorController extends Controller {
-  queryParams = ['selectedParagraph'];
-
-  @tracked selectedParagraph = 0;
+  @tracked selectedParagraph;
 
   @readOnly('model.title') title;
   @readOnly('model.data') paragraphs;
@@ -14,5 +12,8 @@ export default class GeneratorController extends Controller {
   @action
   selectParagraph(index) {
     this.selectedParagraph = index;
+    this.transitionToRoute('generator.questionnaire',
+      { queryParams: { selectedParagraph: index } }
+    );
   }
 }
