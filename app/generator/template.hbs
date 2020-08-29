@@ -1,6 +1,29 @@
-<PageGenerator
-  @paragraphs={{this.paragraphs}}
-  @title={{this.title}}
-  @selectedParagraph={{this.selectedParagraph}}
-  @onSelectParagraph={{this.selectParagraph}}
-/>
+{{!-- nav bar --}}
+<NavBar />
+
+{{!-- main content --}}
+<main class="max-w-screen-lg mx-auto">
+  {{!-- Two columns --}}
+  <div class="lg:flex lg:space-x-8">
+    {{!-- Left Panel --}}
+    <div class="lg:w-1/2 px-6">
+      {{!-- article --}}
+      <ParsedArticle
+        @title={{this.title}}
+        @paragraphs={{this.paragraphs}}
+        @selectedParagraph={{this.selectedParagraph}}
+        @onSelectParagraph={{this.selectParagraph}}
+      />
+    </div>
+
+    {{!-- Right Panel --}}
+    <div class="lg:w-1/2 px-6">
+      {{!-- Questionnaire --}}
+      {{#if this.showQuestionnaire}}
+        {{outlet}}
+      {{else}}
+        <PostitNote />
+      {{/if}}
+    </div>
+  </div>
+</main>

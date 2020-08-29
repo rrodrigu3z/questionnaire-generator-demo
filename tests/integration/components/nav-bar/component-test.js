@@ -4,7 +4,7 @@ import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import stubService from 'questionnaire-generator-demo/tests/helpers/stub-service';
 
-module('Integration | Component | page-generator/nav-bar', function(hooks) {
+module('Integration | Component | nav-bar', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
@@ -16,7 +16,7 @@ module('Integration | Component | page-generator/nav-bar', function(hooks) {
       toggleModel() { }
     });
 
-    await render(hbs`<PageGenerator::NavBar />`);
+    await render(hbs`<NavBar />`);
 
     assert.dom('nav [data-test-home-button]').hasText('Back to home')
     assert.dom('nav [data-test-model-button]').hasText(selectedModel.name);
@@ -29,7 +29,7 @@ module('Integration | Component | page-generator/nav-bar', function(hooks) {
       toggleModel() { assert.ok('calls toggle model action'); }
     })
 
-    await render(hbs`<PageGenerator::NavBar />`);
+    await render(hbs`<NavBar />`);
     await click('nav [data-test-model-button]');
   });
 });
