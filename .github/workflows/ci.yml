@@ -43,4 +43,4 @@ jobs:
           buildpack: "https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/emberjs.tgz"
         env:
          HD_API_HOST: ${{secrets.API_HOST}}
-         HD_NAMESPACE: ${{secrets.NAMESPACE}}
+         HD_API_NAMESPACE: ${{secrets.API_NAMESPACE}}
