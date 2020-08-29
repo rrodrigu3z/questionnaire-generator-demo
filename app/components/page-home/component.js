@@ -21,6 +21,8 @@ export default class PageHomeComponent extends Component {
   @action
   processURL(url) {
     let title = this.wikipedia.extractTitle(url);
-    this.router.transitionTo('generator', title);
+    this.router.transitionTo('generator', title,
+      { queryParams: { selectedParagraph: null } }
+    );
   }
 }

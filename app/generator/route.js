@@ -4,14 +4,18 @@ import { inject as service } from '@ember/service';
 export default class GeneratorRoute extends Route {
   @service wikipedia;
   @service fetch;
+  @service fastboot;
 
   model({ title }) {
-    return this.wikipedia.parse(title);
+    if (!this.fastboot.isFastBoot) {
+      return this.wikipedia.parse(title);
+    }
   }
 
-  resetController(controller, isExiting, transition) {
-    if (isExiting && transition.targetName !== 'error') {
-      controller.set('selectedParagraph', null);
-    }
+  setupController(controller, model) {
+    super.setupController(controller, model);
+
+    let { selectedParagraph } = this.paramsFor('generator.questionnaire');
+    controller.set('selectedParagraph', selectedParagraph);
   }
 }
