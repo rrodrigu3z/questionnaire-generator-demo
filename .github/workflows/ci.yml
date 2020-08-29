@@ -27,6 +27,8 @@ jobs:
       run: yarn test
       env:
         CI: true
+        API_HOST: http://localhost
+        API_NAMESPACE: test
 
   deploy:
     needs: build
