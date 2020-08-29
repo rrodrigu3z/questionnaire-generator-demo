@@ -19,6 +19,15 @@ You will need the following things properly installed on your computer.
 * `cd questionnaire-generator-demo`
 * `yarn install`
 
+## Environment Variables
+
+You will need the following envvars for setting the API, example:
+
+```
+export API_HOST=https://the-questionnaire-api
+export API_NAMESPACE=dev
+```
+
 ## Running / Development
 
 * `ember serve`
