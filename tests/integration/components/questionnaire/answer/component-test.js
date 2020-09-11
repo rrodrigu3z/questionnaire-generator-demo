@@ -10,11 +10,12 @@ module('Integration | Component | questionnaire/answer', function(hooks) {
     await render(hbs`
       <Questionnaire::Answer
         @text="Human intelligence"
+        @similarity=0.1234567
       />
     `);
 
     assert.dom('li img').doesNotExist();
-    assert.dom('li').hasText('Human intelligence');
+    assert.dom('li').hasText('0.123 Human intelligence');
   });
 
   test('it renders correct answer', async function(assert) {

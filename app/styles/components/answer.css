@@ -1,0 +1,5 @@
+/* CSS for answer component  */
+
+.similarity {
+  @apply rounded-full bg-gray-700 px-2 py-1 text-xs font-bold text-gray-500;
+}

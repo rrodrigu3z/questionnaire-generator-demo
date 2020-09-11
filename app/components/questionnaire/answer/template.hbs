@@ -4,5 +4,10 @@
     <span>{{@text}}</span>
   </li>
 {{else}}
-  <li class="pl-6 text-gray-500 pt-2">{{@text}}</li>
+  <li class="pl-6 text-gray-500 pt-2">
+    <span
+      title="Similarity to the correct answer"
+      class="similarity">{{round @similarity decimals=3}}</span>
+    <span>{{@text}}</span>
+  </li>
 {{/if}}
