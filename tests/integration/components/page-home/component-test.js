@@ -14,6 +14,6 @@ module('Integration | Component | page-home', function(hooks) {
     assert.dom('[data-test-article-item]').doesNotExist();
 
     await click('[data-test-article-select]');
-    assert.dom('[data-test-article-item]').exists({ count: 2 });
+    assert.dom('[data-test-article-item]').exists({ count: 6 });
   });
 });
