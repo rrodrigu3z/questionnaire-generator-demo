@@ -1,6 +1,7 @@
 import Service from '@ember/service';
 import fetch from 'fetch';
 import config from 'questionnaire-generator-demo/config/environment';
+import { isPresent } from '@ember/utils'
 
 const JSON_CONTENT_TYPE = 'application/json; charset=utf-8';
 
@@ -20,6 +21,9 @@ export default class FetchService extends Service {
   }
 
   _buildUrl(path) {
-    return `${this.host}/${this.namespace}${path}`;
+    if (isPresent(this.namespace)) {
+      return `${this.host}/${this.namespace}${path}`;
+    }
+    return `${this.host}${path}`;
   }
 }
