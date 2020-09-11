@@ -22,7 +22,7 @@ export default class WikipediaService extends Service {
 
   extractTitle(articleUrl) {
     const matches = articleUrl.match(URL_REGEX);
-    if (isPresent(matches)) { return matches[1]; }
+    if (isPresent(matches)) { return decodeURI(matches[1]); }
 
     return null;
   }

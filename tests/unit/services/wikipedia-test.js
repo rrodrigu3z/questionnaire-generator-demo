@@ -17,6 +17,14 @@ module('Unit | Service | wikipedia', function(hooks) {
     assert.equal(title, 'Artificial_intelligence');
   });
 
+  test('it decodes the title when extracting it', function(assert) {
+    assert.expect(1);
+    const url = 'https://en.wikipedia.org/wiki/Gabriel_Faur%C3%A9';
+    const title = this.service.extractTitle(url);
+
+    assert.equal(title, 'Gabriel_Fauré');
+  });
+
   test('it returns null title with invalid URL', function(assert) {
     assert.expect(1);
     const url = 'https://other.wiki/wiki/Artificial_intelligence';
